@@ -3,6 +3,7 @@
 
 app:
   image: mageinferno/magento2-nginx:1.9.14-0
+  command: echo "set TERM=xterm" > ~/.bashrc && apt-get update && apt-get install vim
   links:
     - phpfpm
     - db
@@ -20,6 +21,7 @@ appdata:
 
 phpfpm:
   image: mageinferno/magento2-php:7.0.5-fpm-0
+  command: echo "set TERM=xterm" > ~/.bashrc && apt-get update && apt-get install vim
   links:
     - db
   volumes_from:
@@ -27,6 +29,7 @@ phpfpm:
 
 db:
   image: mariadb:10.1.13
+  command: echo "set TERM=xterm" > ~/.bashrc && apt-get update && apt-get install vim
   volumes_from:
     - dbdata
   ports:
